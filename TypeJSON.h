@@ -13,6 +13,13 @@ extern NSString *TypeJSONErrorDomain;
 ///  @return A JSON object based on the provided data or any errors encounter during parsing and initialization
 + (instancetype)fromData:(NSData *)object;
 
+///  Wrap a object in a TypeJSON. The object should be a JSON type supported by NSJSONSerialization.
+///
+///  @param object Any object
+///
+///  @return A JSON object based on the provided data or any errors encounter during parsing and initialization
++ (instancetype)fromObject:(id)object;
+
 ///  Creates a new JSON to represent the empty object, `{}`.
 ///
 ///  @return A new JSON instance

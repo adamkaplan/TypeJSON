@@ -19,6 +19,10 @@ typedef NS_ENUM(NSInteger, TypeJSONErrorCode) {
     return [[self alloc] initWithData:data];
 }
 
++ (instancetype)fromObject:(id)object {
+    return [[self alloc] initWithValue:object];
+}
+
 + (instancetype)emptyObject {
     return [[self alloc] initWithValue:@{}];
 }

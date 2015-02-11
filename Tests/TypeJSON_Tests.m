@@ -94,6 +94,15 @@ NSData * dataForFixture(NSString *name);
     XCTAssertEqualObjects(emptyObject.asObject, @{});
 }
 
+- (void)testInitializingFromPonso {
+    XCTAssertEqualObjects([TypeJSON fromObject:self.mickeyMouseProfileJSON.value].asObject, self.mickeyMouseProfileJSON.value);
+    XCTAssertEqualObjects([TypeJSON fromObject:self.arrayJSON.value].asArray,               (@[@(1),@"word",NSNull.null]));
+    XCTAssertEqualObjects([TypeJSON fromObject:self.stringJSON.value].asString,             @"hello, world!");
+    XCTAssertEqualObjects([TypeJSON fromObject:self.nullJSON.value].asNull,                 [NSNull null]);
+    XCTAssertEqualObjects([TypeJSON fromObject:self.numberJSON.value].asNumber,             @(42));
+    XCTAssertTrue([TypeJSON fromObject:self.invalidJSON.asError].isError);
+}
+
 #pragma mark Accessor Tests
 
 - (void)testStringAccessor {
